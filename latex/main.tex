@@ -1,62 +1,25 @@
 %
-% Exemplo LaTeX de monografia UNISINOS
-%
-% Elaborado com base nas orientações dadas no documento
-% ``GUIA PARA ELABORAÇÃO DE TRABALHOS ACADÊMICOS''
-% disponível no site da biblioteca da Unisinos.
-% http://www.unisinos.br/biblioteca
-%
-% Os elementos textuais abaixo são apresentados na ordem em que devem
-% aparecer no documento.  Repare que nem todos são obrigatórios - isso
-% é devidamente indicado em cada caso.
-%
-% Comentários abaixo colocados entre aspas (`` '') foram
-% extraídos diretamente do documento da biblioteca.
-%
-% Este documento é de domínio público.
+% Monografia de TCC - UNISINOS
+% Técnicas de Anti-Aliasing, Super Sampling e o uso de Deep Learning
+% Autor: Christian Aguiar Plentz
+% Orientadora: Rossana Baptista Queiroz
 %
 
-%=======================================================================
-% Declarações iniciais identificando a classe de documento e
-% selecionando alguns pacotes adicionais.
-%
-% As opções disponíveis (separe-as com vírgulas, sem espaço) são:
-% - twoside: Formata o documento para impressão frente-e-verso
-%   (o default é somente-frente)
-% - english,brazilian,french,german,etc.: idiomas usados no documento.
-%   Deve ser colocado por último o idioma principal.
-%=======================================================================
 \documentclass[twoside,english,brazilian]{UNISINOSmonografia}
-\usepackage[utf8]{inputenc} % charset do texto (utf8, latin1, etc.)
-\usepackage[T1]{fontenc} % encoding da fonte (afeta a sep. de sílabas)
-\usepackage{graphicx} % comandos para gráficos e inclusão de figuras
-\usepackage{bibentry} % para inserir refs. bib. no meio do texto
-
-%=======================================================================
-% Escolha do sistema para geração de referências bibliográficas.
-%
-% O default é usar o estilo unisinos.bst.  Comente a definição abaixo
-% e descomente a linha seguinte para usar o estilo do ABNTeX (é
-% necessário ter esse pacote instalado).
-%
-% A vantagem do unisinos.bst é que ele permite o uso de um arquivo .bib
-% seguindo as orientações tradicionais do BibTeX (veja essas orientações
-% em http://ctan.tug.org/tex-archive/biblio/bibtex/contrib/doc/btxdoc.pdf).
-% Entretanto, o estilo não suporta algumas citações mais exóticas como
-% apud.  Para isso, use o ABNTeX, mas esteja ciente de que muitas de
-% suas referências serão incompatíveis com os estilos tradicionais do
-% BibTeX como plain, alpha, ieeetr, entre outros.
-%=======================================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{bibentry}
+\usepackage{booktabs}
+\usepackage{url}
 \usepackage[alf]{abntex2cite}
-%\usepackage[alf]{abntcite}
 
 %=======================================================================
 % Dados gerais sobre o trabalho.
 %=======================================================================
 \autor{Aguiar Plentz}{Christian}
-\titulo{Técnicas de Anti-Aliasing, Super Sampling e o uso de Deep Learning}
+\titulo{Análise Comparativa de Técnicas de Anti-Aliasing em Jogos: Qualidade de Imagem e Performance com AMD FSR no Motor Godot}
 \orientador[Professora]{Baptista Queiroz}{Rossana}
-%\coorientador[Prof.~Dr.]{Lamport}{Leslie}
 
 \unidade{Unidade Acadêmica de Graduação}
 \curso{Curso de Bacharelado em Ciência da Computação}
@@ -66,22 +29,16 @@ Monografia apresentada como requisito parcial para obtenção do título de Bach
 \local{São Leopoldo}
 \ano{2026}
 
-% dados da ficha catalográfica
-% (obrigatória somente para dissertações e teses)
-%\cip{Dissertação (mestrado)}{004.732}
-%\bibliotecario{Bibliotecária responsável: Fulana da Silva}{12/3456}
-
-% cada palavra-chave deve ser fornecida duas vezes, uma em português e
-% outra no idioma estrangeiro (na verdade, em tantos idiomas quantos se
-% desejar).
 \palavrachave{brazilian}{Computação Gráfica}
 \palavrachave{brazilian}{Anti-Aliasing}
 \palavrachave{brazilian}{Godot}
 \palavrachave{brazilian}{Upscaling}
+\palavrachave{brazilian}{Qualidade de Imagem}
 \palavrachave{english}{Computer Graphics}
 \palavrachave{english}{Anti-Aliasing}
 \palavrachave{english}{Godot}
 \palavrachave{english}{Upscaling}
+\palavrachave{english}{Image Quality}
 
 %=======================================================================
 % Início do documento.
@@ -89,110 +46,51 @@ Monografia apresentada como requisito parcial para obtenção do título de Bach
 \begin{document}
 \capa
 \folhaderosto
-%\folhadeaprovacao % não deve ser incluída nos TCCs
-
-%=======================================================================
-% Dedicatória (opcional).
-%
-% O texto é normalmente colocado na parte de baixo da página, alinhado
-% à direita.  Mas a formatação é basicamente livre.  Só não se escreve
-% a palavra 'dedicatória'.
-%=======================================================================
-% \begin{dedicatoria}
-% Aos nossos pais.\\[4ex] % quebra a linha dando um espaçamento maior
-% \begin{itshape} % faz o texto ficar em itálico
-% If I have seen farther than others,\\
-% it is because I stood on the shoulders of giants.\\
-% \end{itshape}
-% --- \textsc{Sir Isaac Newton} % \textsc é o "small caps"
-% \end{dedicatoria}
-
-%=======================================================================
-% Agradecimentos (opcional).
-%=======================================================================
-% \begin{agradecimentos}
-% Obrigado!
-% \end{agradecimentos}
-
-%=======================================================================
-% Epígrafe (opcional).
-%
-% ``[...] o autor apresenta uma citação, seguida de indicação de autoria,
-% relacionada com a matéria tratada no corpo do trabalho. Podem, também,
-% constar epígrafes nas folhas de aberturas das seções primárias.''
-%=======================================================================
-% \begin{epigrafe}
-% ``\textit{Ninguém abre um livro sem que aprenda alguma coisa}''.\\
-% (Anônimo)
-% \end{epigrafe}
 
 %=======================================================================
 % Resumo em Português.
-%
-% A recomendação é para 150 a 500 palavras.
 %=======================================================================
 \begin{abstract}
-Este artigo busca comparar as variadas técnicas de Anti-Aliasing para comparar sua qualidade de imagem e performance com com o intuito de apresentar as novas técnicas que utilizam do Upscaling para o ganho de performance que nesse caso foi utilizado o FSR da AMD, também foi utilizado a Plataforma Godot para testar a performance e qualidade das cenas renderizadas
+O aliasing é um problema recorrente na computação gráfica em tempo real, manifestando-se como bordas serrilhadas e artefatos visuais que comprometem a experiência do usuário em jogos digitais. Diversas técnicas de anti-aliasing foram desenvolvidas ao longo das décadas para mitigar esse problema, cada uma com compromissos distintos entre qualidade de imagem e custo computacional. Este trabalho realiza uma análise comparativa de técnicas de anti-aliasing — sem anti-aliasing (NOAA), Fast Approximate Anti-Aliasing (FXAA) e Temporal Anti-Aliasing (TAA) — acrescidas do módulo de upscaling AMD FidelityFX Super Resolution (FSR), utilizando o motor de jogos Godot como plataforma de testes. A avaliação da qualidade de imagem é conduzida por meio de métricas objetivas: Peak Signal-to-Noise Ratio (PSNR), Structural Similarity Index (SSIM) e Visual Information Fidelity (VIF), enquanto a performance é mensurada em quadros por segundo (FPS) e tempo de renderização de GPU. A escolha do AMD FSR deve-se à sua compatibilidade com a GPU NVIDIA GeForce GTX 1060 utilizada no ambiente de testes, ao contrário de tecnologias proprietárias como DLSS, que exigem hardware específico. Os resultados obtidos têm por objetivo fornecer dados empíricos que auxiliem desenvolvedores de jogos na seleção da técnica mais adequada conforme os requisitos de hardware e qualidade visual de seus projetos.
 \end{abstract}
 
 %=======================================================================
-% Resumo em língua estrangeira (obrigatório somente para teses e
-% dissertações).
-%
-% O idioma usado aqui deve necessariamente aparecer nos parâmetros do
-% \documentclass, no início do documento.
+% Abstract em inglês.
 %=======================================================================
 \begin{otherlanguage}{english}
 \begin{abstract}
-This article looks at the various techniques in Anti-Aliasing to compare its respective performance and image quality as a showcase for new methods that utilize Upscaling for performance gain in which this study it was utilized the FSR upscaling from AMD on the Godot Platform for testing scenes.
+Aliasing is a recurring problem in real-time computer graphics, manifesting as jagged edges and visual artifacts that compromise the user experience in digital games. Various anti-aliasing techniques have been developed over the decades to mitigate this issue, each with distinct trade-offs between image quality and computational cost. This work performs a comparative analysis of anti-aliasing techniques — No Anti-Aliasing (NOAA), Fast Approximate Anti-Aliasing (FXAA), and Temporal Anti-Aliasing (TAA) — combined with the AMD FidelityFX Super Resolution (FSR) upscaling module, using the Godot game engine as the testing platform. Image quality evaluation is conducted through objective metrics: Peak Signal-to-Noise Ratio (PSNR), Structural Similarity Index (SSIM), and Visual Information Fidelity (VIF), while performance is measured in frames per second (FPS) and GPU rendering time. The choice of AMD FSR is due to its compatibility with the NVIDIA GeForce GTX 1060 GPU used in the test environment, unlike proprietary technologies such as DLSS, which require specific hardware. The obtained results aim to provide empirical data to assist game developers in selecting the most appropriate technique according to the hardware requirements and visual quality demands of their projects.
 \end{abstract}
 \end{otherlanguage}
 
 %=======================================================================
-% Lista de Figuras (opcional).
+% Lista de Figuras
 %=======================================================================
 \listoffigures
 
 %=======================================================================
-% Lista de Tabelas (opcional).
+% Lista de Tabelas
 %=======================================================================
 \listoftables
 
 %=======================================================================
-% Lista de Abreviaturas (opcional).
-%
-% Deve ser passada como parâmetro a maior das abreviaturas utilizadas.
+% Lista de Siglas
 %=======================================================================
-\begin{listadeabreviaturas}{seg., segs.}
-\item[ampl.] ampliado, -a
-\item[atual.] atualizado, -a
-\item[coord.] coordenador
-\item[N.~T.] Novo Testamento
-\item[seg., segs.] seguinte, -s
-\end{listadeabreviaturas}
-
-%=======================================================================
-% Lista de Siglas (opcional).
-%
-% Deve ser passada como parâmetro a maior das siglas utilizadas.
-%=======================================================================
-\begin{listadesiglas}{FAPERGS}
-\item[FSAA] Full-Scene Anti-Aliasing
+\begin{listadesiglas}{PSNR}
+\item[NOAA] No Anti-Aliasing (Sem Anti-Aliasing)
 \item[FXAA] Fast Approximate Anti-Aliasing
-\item[MSAA] Multi Sampling Anti-Aliasing
-\item[TAA] Temporal Anti-Aliasing
+\item[MSAA] Multi-Sample Anti-Aliasing
+\item[SSAA] Super-Sample Anti-Aliasing
+\item[TAA]  Temporal Anti-Aliasing
+\item[TSR]  Temporal Super Resolution
+\item[DLSS] Deep Learning Super Sampling
+\item[FSR]  FidelityFX Super Resolution
+\item[PSNR] Peak Signal-to-Noise Ratio
+\item[SSIM] Structural Similarity Index
+\item[VIF]  Visual Information Fidelity
+\item[FPS]  Frames Per Second (Quadros por Segundo)
+\item[GPU]  Graphics Processing Unit (Unidade de Processamento Gráfico)
 \end{listadesiglas}
-
-%=======================================================================
-% Lista de Símbolos (opcional).
-%
-% Deve ser passado o maior (mais largo) dos símbolos utilizados.
-%=======================================================================
-\begin{listadesimbolos}{Ca}
-\item[\textsuperscript{o}C] Graus Celsius
-\item[Al] Alumínio
-\item[Ca] Cálcio
-\end{listadesimbolos}
 
 %=======================================================================
 % Sumário
@@ -200,145 +98,313 @@ This article looks at the various techniques in Anti-Aliasing to compare its res
 \tableofcontents
 
 %=======================================================================
-% Introdução
+% CAPÍTULO 1 — Introdução
 %=======================================================================
 \chapter{Introdução}
 
-% as epígrafes nos capítulos são opcionais
+Na computação gráfica em tempo real, um problema persistente desde os primórdios da renderização digital é o aliasing, fenômeno causado pelo processo de rasterização ao converter geometria contínua em pixels discretos~\cite{real_time_rendering_4th}. Essa limitação se manifesta principalmente como bordas serrilhadas em objetos, cintilação de texturas de alta frequência e instabilidade temporal em cenas dinâmicas, comprometendo o realismo e o conforto visual do jogador.
 
-Na Computação Gráfica um problema que foi pertinente é a aparição de serrilhados na tela ou "aliasing", causado pelo rasterizador que atribui somente valores absolutos de pixel sobre um vértice ao traduzir seus valores para uma resolução~\cite{real_time_rendering_4th}. 
+Para mitigar esses artefatos, diversas técnicas de anti-aliasing foram desenvolvidas ao longo de décadas. O Super-Sampling Anti-Aliasing (SSAA), pioneiro da área, renderiza a cena em resolução múltipla da resolução alvo e faz o downsampling do resultado, obtendo excelente qualidade de imagem às custas de elevado custo computacional~\cite{real_time_rendering_4th}. O Multi-Sample Anti-Aliasing (MSAA) surgiu como otimização do SSAA, aplicando múltiplas amostras apenas nas bordas geométricas, reduzindo consideravelmente o processamento necessário. Já o Fast Approximate Anti-Aliasing (FXAA) representa a geração de técnicas de pós-processamento, detectando e suavizando bordas na imagem já renderizada, com overhead mínimo~\cite{lottes2011fxaa}. O Temporal Anti-Aliasing (TAA) avança nessa direção ao acumular informações de quadros anteriores para reconstituir bordas suaves, atingindo resultados superiores em cenas estáticas ao custo de potenciais artefatos de ghosting em movimentos rápidos~\cite{yang2020dlss}.
 
-O primeiro Algoritmo de Anti-Aliasing foi o FSAA que renderiza uma cena com uma resolução elevada a 2 da nativa, Se houve inovações na parte da renderização como o MSAA que foi uma otimização do FSAA para utilizar em Renderizadores de alta demanda, já que a ultima apresenta um Alto Custo computacional para processar uma cena~\cite{real_time_rendering_4th}.
+Mais recentemente, técnicas de super-resolução como o DLSS (NVIDIA) e o AMD FidelityFX Super Resolution (FSR) combinam upscaling com anti-aliasing, permitindo renderizar a cenas em resoluções reduzidas e reconstruir uma imagem de alta qualidade, com ganhos expressivos de performance~\cite{amd_fsr}. Contudo, o DLSS exige hardware NVIDIA RTX com Tensor Cores dedicados, limitando sua adoção. O AMD FSR, por sua natureza agnóstica de hardware e código aberto, oferece compatibilidade mais ampla, sendo suportado inclusive por GPUs como a NVIDIA GeForce GTX 1060 utilizada neste trabalho.
 
-Já no ambito pós-MSAA se buscou formas de Anti-Aliasing com métodos de pós processamento como o FXAA e algoritmos temporais como o TAA que utiliza frames antigos 
+Apesar do crescente interesse acadêmico e industrial nessas tecnologias, a literatura ainda carece de comparações empíricas sistemáticas que utilizem métricas objetivas de qualidade de imagem — como PSNR, SSIM e VIF — em plataformas acessíveis e motores de jogos amplamente adotados, como o Godot. Trabalhos recentes, como o de \citeonline{feng2025antialiasing}, realizaram comparações abrangentes no Unreal Engine utilizando FXAA, TAA e TSR, estabelecendo um referencial metodológico importante para a área. No entanto, essa comparação foi conduzida em hardware de alto desempenho (RTX 4080 SUPER) e não contempla o AMD FSR nem o motor Godot, lacunas que este trabalho se propõe a preencher.
 
-\begin{itemize}
-	\item \textbf{Contexto e motivação:} Com novas técnicas de Anti-Aliasing, se tem ainda poucas pesquisas sobre sua performance comparado aos seus contemporâneos além de vídeos de comparação lado a lado sem muitas métricas empíricas para corroborar um método sobre o outro, com isso se abre uma oportunidade de fazer uma comparação com Métricas de qualidade de imagem e performance para serem usados de referencia por desenvolvedores interessados nesse assunto.
-	\item \textbf{Problema:} 
-        
-	\item \textbf{Objetivos:} Aqui você deve apresentar os objetivos do seu trabalho. Tome cuidado para não confundir objetivos com atividades.   Faça a si mesmo a pergunta: ``O que pretendo alcançar com a pesquisa?''. Você pode discernir entre objetivos gerais e objetivos específicos:
-	\begin{itemize}
-		\item Objetivo geral --- qual o propósito da pesquisa?
-		\item Objetivos específicos --- abertura do objetivo geral em outros menores (possíveis capítulos).
-	\end{itemize}
-	Veja abaixo um exemplo de objetivo retirado da monografia de~\cite{Teixeira09}:
+\section{Delimitação do Tema}
 
-	Com a possibilidade de acesso a base de dados XML gerada a partir do Sistema de Currículos Lattes e a necessidade de melhor reutilizar as informações existentes neste sistema, o presente trabalho tem como objetivo geral permitir o acesso do pesquisador a seus dados através de uma interface mais amigável: o padrão LaTeX. Para isto destacam-se os seguintes objetivos específicos:
-	\begin{alineas}
-		\item identificar e analisar o formato de especificação de currículos da Plataforma Lattes;
-		\item disponibilizar uma ferramenta para a geração de uma representação de dados intermediária a partir do formato especificado;
-		\item implementar a tradução dos dados colhidos em código LaTeX através da utilização da ferramenta criada;
-		\item analisar os resultados obtidos e as alternativas presentes no uso da ferramenta.
-	\end{alineas}
-\end{itemize}
+Este trabalho foca na comparação de três técnicas de anti-aliasing nativas (NOAA, FXAA e TAA) combinadas com o módulo de upscaling AMD FSR, todas avaliadas no motor de jogos Godot 4. A avaliação é limitada ao hardware disponível — uma GPU NVIDIA GeForce GTX 1060 —, o que restringe a viabilidade de tecnologias como DLSS e TSR, incompatíveis com esse hardware. O AMD FSR foi escolhido como representante da categoria de super-resolução por ser o único módulo compatível com a GTX 1060 disponível no Godot.
+
+\section{Questão de Pesquisa}
+
+Como as técnicas de anti-aliasing NOAA, FXAA e TAA, combinadas com o upscaling AMD FSR, se comparam em termos de qualidade de imagem (PSNR, SSIM e VIF) e performance (FPS e tempo de GPU) ao renderizar cenas no motor Godot em uma GPU NVIDIA GeForce GTX 1060?
+
+\section{Objetivos}
+
+O objetivo geral deste trabalho é \textbf{comparar empiricamente técnicas de anti-aliasing e upscaling no motor Godot}, avaliando os compromissos entre qualidade de imagem e performance em hardware de médio desempenho representativo pelo segmento de consumidores.
+
+Os objetivos específicos são:
+
+\begin{alineas}
+    \item Implementar e configurar as técnicas NOAA, FXAA, TAA e AMD FSR em cenas padronizadas no motor Godot 4;
+    \item Capturar imagens de referência e imagens processadas pelas técnicas avaliadas em diferentes resoluções;
+    \item Calcular as métricas objetivas de qualidade de imagem PSNR, SSIM e VIF para cada técnica e configuração de cena;
+    \item Medir e comparar o desempenho computacional (FPS e tempo de renderização GPU) de cada técnica;
+    \item Analisar comparativamente os resultados obtidos, identificando os compromissos de qualidade e performance de cada abordagem.
+\end{alineas}
+
+\section{Justificativa}
+
+A escolha de técnicas de anti-aliasing é uma decisão crítica no desenvolvimento de jogos, impactando diretamente a experiência visual do jogador e os requisitos de hardware do produto final. Embora existam comparações informais em vídeos e fóruns, há escassez de estudos com dados empíricos mensuráveis que utilizem métricas científicas reconhecidas para embasar essa escolha~\cite{feng2025antialiasing}.
+
+Sob o aspecto da \textbf{oportunidade}, o motor Godot tem ganhado crescente adoção pela indústria de jogos independentes, especialmente após a polêmica de mudanças de licenciamento da Unity em 2023, tornando relevante investigar as capacidades de anti-aliasing dessa plataforma. Sob o aspecto da \textbf{viabilidade}, o ambiente de testes foi validado com testes preliminares que confirmaram o funcionamento dos módulos FSR, FXAA e TAA no Godot 4 com a GTX 1060. Quanto ao \textbf{legado}, os dados gerados poderão servir como referência para desenvolvedores que trabalham em hardware de custo acessível — segmento ainda majoritário no parque computacional de jogadores — e contribuir para a literatura científica sobre qualidade de imagem em motores de jogos.
 
 %=======================================================================
-% Escrevendo o Texto
+% CAPÍTULO 2 — Fundamentação Teórica
 %=======================================================================
-\chapter{Escrevendo o Texto}
+\chapter{Fundamentação Teórica}
 
-\section{Comandos do \LaTeX}
-Como regra geral, use os comandos tradicionais do \LaTeX\ para formatar seu texto.  Neste documento procuramos demonstrar os comandos mais comumente utilizados em monografias acadêmicas.
+Este capítulo apresenta os fundamentos teóricos necessários para compreensão do problema de aliasing, as principais técnicas de anti-aliasing e as métricas utilizadas na avaliação de qualidade de imagem. Ao final, a seção de Trabalhos Relacionados contextualiza o presente estudo no estado da arte.
 
-Neste capítulo apresentamos alguns exemplos de como colocar figuras e tabelas no seu texto.
+\section{O Problema do Aliasing}
 
-\section{Ilustrações}
+O aliasing é um fenômeno intrínseco à digitalização de sinais contínuos. Pelo Teorema da Amostragem de Nyquist-Shannon, para reconstruir corretamente um sinal contínuo a partir de amostras discretas, a frequência de amostragem deve ser ao menos o dobro da maior frequência presente no sinal~\cite{real_time_rendering_4th}. Na computação gráfica, quando a geometria de uma cena contém frequências espaciais superiores à resolução do framebuffer, o rasterizador não consegue representar adequadamente essas informações, gerando os característicos serrilhados nas bordas de polígonos.
 
-\subsection{Legendas}
-As legendas das figuras devem se encontrar no topo da figura e não abaixo, como usualmente colocado. Abaixo da figura, é obrigatório colocar a fonte (mesmo que a figura tenha sido do próprio autor).
+Esse problema se manifesta de três formas principais: (1) artefatos de escada (\textit{staircase}) nas bordas geométricas de objetos; (2) cintilação de texturas de alta frequência; e (3) instabilidade temporal em cenas dinâmicas, onde pixels oscilam entre estados distintos entre quadros consecutivos~\cite{feng2025antialiasing}.
 
-As legendas devem conter o tipo da ilustração (Figura, Tabela, etc), seguido de numeração simples (sem número do capítulo).
+\section{Técnicas de Anti-Aliasing}
 
-Toda figura deve ser citada no texto, como nos exemplos que seguem.
+\subsection{Super-Sample Anti-Aliasing (SSAA)}
 
-\subsection{Figuras}
-A Figura~\ref{fig:escrita} ilustra as fases psicológicas da escrita da dissertação, que também valem para monografia. Você vai se reconhecer no personagem. ;-)
+O SSAA é a abordagem mais direta para o problema do aliasing: a cena é renderizada em uma resolução múltipla da resolução alvo — tipicamente o dobro ou o quádruplo — e o resultado é reduzido para a resolução final por meio de um filtro de downsampling~\cite{real_time_rendering_4th}. Apesar de produzir a melhor qualidade de imagem entre as técnicas tradicionais, seu custo computacional cresce proporcionalmente à resolução de renderização, tornando-o inviável para aplicações em tempo real na maioria dos hardwares modernos.
 
-\begin{figure}
-	\caption{Fases psicológicas da escrita da dissertação}
-	\label{fig:escrita}
-	\centering%
-	\begin{minipage}{.8\textwidth}
-		\includegraphics[width=\textwidth]{images/escrita.jpg}
-		\fonte{http://www.phdcomics.com/comics/archive.php?comicid=149}
-	\end{minipage}
-\end{figure}
+\subsection{Multi-Sample Anti-Aliasing (MSAA)}
 
-\subsection{Tabelas}
-A Tabela~\ref{tab:estacoes} é um exemplo de tabela elaborada pelo(a) próprio(a) autor(a).
+O MSAA surgiu como uma otimização do SSAA, aplicando múltiplas amostras de profundidade e estêncil apenas nas bordas geométricas, enquanto o shader de fragmento é executado uma única vez por pixel~\cite{real_time_rendering_4th}. Essa estratégia reduz significativamente o overhead de computação, mas apresenta limitações com objetos semi-transparentes, texturas com alfa e pipelines de renderização diferida (\textit{deferred rendering}), amplamente utilizados em jogos modernos.
 
-\begin{table}
-	\caption{Período das estações do ano no Brasil}
-	\label{tab:estacoes}
-	\centering%
-	\begin{minipage}{.6\textwidth}
-		\begin{tabular*}{\textwidth}{ll}
-			\hline
-			\textbf{Meses} & \textbf{Estações do Ano}\\
-			\hline
-			21 de março a 21 de junho & Outono\\
-			21 de junho a 23 de setembro & Inverno\\
-			23 de setembro a 21 de dezembro & Primavera\\
-			21 de dezembro a 21 de março & Verão\\
-			\hline
-		\end{tabular*}
-		\fonte{Elaborada pela autora.}
-	\end{minipage}
+\subsection{Fast Approximate Anti-Aliasing (FXAA)}
+
+O FXAA é uma técnica de pós-processamento desenvolvida pela NVIDIA que detecta bordas com alto contraste luminoso no framebuffer já renderizado e aplica um filtro de suavização sobre essas regiões~\cite{lottes2011fxaa}. Por operar sobre a imagem final sem modificar a pipeline de renderização, é altamente compatível e apresenta overhead mínimo. Sua principal limitação é a tendência ao embaçamento (\textit{over-blurring}) de detalhes de textura, especialmente em cenas com vegetação e malhas complexas~\cite{feng2025antialiasing}.
+
+\subsection{Temporal Anti-Aliasing (TAA)}
+
+O TAA acumula informação de múltiplos quadros históricos, reprojetando pixels anteriores para a posição atual por meio de vetores de movimento~\cite{yang2020dlss}. Esse acúmulo temporal permite obter efeitos de super-sampling de maneira gradual, produzindo imagens com bordas suaves e estabilidade visual elevada. Os principais artefatos do TAA são o ghosting — rastros de pixels em cenas com movimento rápido — e um leve embaçamento em bordas de alto contraste. Técnicas de clipping e filtragem de histórico são aplicadas para mitigar esses problemas. Como evidenciado por \citeonline{feng2025antialiasing}, o TAA alcança o melhor equilíbrio entre qualidade e performance na maioria dos cenários práticos, sendo a escolha padrão em jogos AAA modernos.
+
+\subsection{AMD FidelityFX Super Resolution (FSR)}
+
+O AMD FSR é uma solução de upscaling espacial de código aberto desenvolvida pela AMD~\cite{amd_fsr}. Diferentemente do DLSS da NVIDIA, o FSR não utiliza aprendizado de máquina e não requer hardware específico, sendo compatível com GPUs de diversas gerações e fabricantes. O FSR renderiza a cena em uma resolução reduzida e aplica um algoritmo de upscaling baseado em filtros espaciais adaptativos para reconstruir uma imagem de alta qualidade, reduzindo o custo de renderização sem exigir modificações na pipeline de iluminação ou na pipeline de renderização~\cite{amd_fsr}. No Godot 4, o FSR está disponível como módulo nativo, tornando-o a única opção de super-resolução compatível com a GTX 1060 neste ambiente.
+
+\section{Métricas de Qualidade de Imagem}
+
+\subsection{Peak Signal-to-Noise Ratio (PSNR)}
+
+O PSNR é uma das métricas mais utilizadas para avaliação quantitativa de qualidade de imagem~\cite{hore2010psnr}. É calculado a partir do Erro Quadrático Médio (MSE) entre a imagem de referência e a imagem processada, conforme a Equação~\ref{eq:psnr}:
+
+\begin{equation}
+    \text{PSNR} = 10 \cdot \log_{10}\left(\frac{\text{MAX}^2}{\text{MSE}}\right)
+    \label{eq:psnr}
+\end{equation}
+
+\noindent onde MAX é o valor máximo de pixel (255 para imagens de 8 bits) e MSE é a média dos quadrados das diferenças pixel a pixel. Valores de PSNR acima de 30~dB indicam boa similaridade com a referência; acima de 40~dB, a diferença é praticamente imperceptível ao olho humano~\cite{hore2010psnr}.
+
+\subsection{Structural Similarity Index (SSIM)}
+
+O SSIM avalia a qualidade de imagem com base em três dimensões perceptuais: luminância, contraste e estrutura~\cite{wang2004ssim}. Ao contrário do PSNR, que mede diferenças absolutas de intensidade, o SSIM é mais alinhado com a percepção visual humana. Seu valor varia de 0 a 1, sendo 1 a similaridade perfeita. A fórmula geral é:
+
+\begin{equation}
+    \text{SSIM}(x, y) = \frac{(2\mu_x\mu_y + C_1)(2\sigma_{xy} + C_2)}{(\mu_x^2 + \mu_y^2 + C_1)(\sigma_x^2 + \sigma_y^2 + C_2)}
+    \label{eq:ssim}
+\end{equation}
+
+\noindent onde $\mu$ representa as médias de luminância, $\sigma$ os desvios padrão e $C_1$, $C_2$ são constantes de estabilização~\cite{wang2004ssim}.
+
+\subsection{Visual Information Fidelity (VIF)}
+
+O VIF é uma métrica de qualidade de imagem que modela a degradação visual como uma redução da informação transmitida pelo canal visual humano~\cite{sheikh2006vif}. Com base em um modelo de distorção de canal gaussiano, o VIF compara a informação contida na imagem de referência com a informação presente na imagem distorcida, tomando a fidelidade de 1,0 como ideal. Valores superiores a 1,0 podem ocorrer quando o processamento introduz nitidez extra percebida como informação adicional. O VIF complementa o PSNR e o SSIM por capturar aspectos de percepção visual que as métricas baseadas em erro de pixel não capturam~\cite{sheikh2006vif}.
+
+\subsection{Preservação de Bordas}
+
+Além das métricas globais, a preservação de bordas é especialmente relevante no contexto de anti-aliasing, pois avalia se os contornos críticos de objetos são mantidos após o processamento~\cite{feng2025antialiasing}. Uma abordagem comum consiste em aplicar o detector de bordas de Canny~\cite{canny1986edge} sobre a imagem de referência e a imagem processada, e em seguida calcular o SSIM entre os dois mapas de bordas binários. Valores próximos a 1,0 indicam excelente preservação da estrutura de bordas.
+
+\section{O Motor Godot}
+
+O Godot é um motor de jogos de código aberto, distribuído sob licença MIT, que oferece suporte nativo a renderização 2D e 3D em tempo real~\cite{godot_engine}. Na versão 4, o Godot introduziu um pipeline de renderização baseado em Vulkan com suporte a técnicas modernas, incluindo FXAA, TAA e o módulo de upscaling AMD FSR. Sua natureza open-source e a ausência de royalties o tornam especialmente atrativo para desenvolvedores independentes, fazendo dele um objeto de estudo relevante para análises de qualidade visual e performance.
+
+\section{Trabalhos Relacionados}
+
+Esta seção apresenta trabalhos relacionados ao tema deste TCC, identificando abordagens semelhantes e suas relações com a proposta aqui desenvolvida.
+
+\citeonline{feng2025antialiasing} conduziram uma análise comparativa abrangente de técnicas de anti-aliasing no Unreal Engine 5, avaliando NOAA, FXAA, TAA e TSR por meio de métricas objetivas (PSNR, SSIM e preservação de bordas) e análise subjetiva de qualidade visual. Os experimentos foram realizados em três cenas de complexidade distinta (baixa, média e alta), em resoluções 1080p e 4K, em hardware de alto desempenho (RTX 4080 SUPER). Os resultados indicam que o TAA oferece o melhor equilíbrio entre qualidade e performance para a maioria dos cenários, enquanto o TSR fornece a maior qualidade de imagem ao custo de maior overhead de GPU. O trabalho estabelece um referencial metodológico sólido para comparações objetivas de anti-aliasing, porém não contempla o AMD FSR nem o motor Godot.
+
+\citeonline{yang2020dlss} realizaram uma revisão abrangente das técnicas de anti-aliasing temporal, detalhando os princípios do TAA, suas variações e os desafios relacionados ao ghosting e à estabilidade temporal. Os autores discutem as limitações dos métodos tradicionais e apresentam a trajetória de evolução em direção às técnicas de super-resolução baseadas em aprendizado profundo. Esse trabalho serve como referência teórica fundamental para a compreensão dos fundamentos do TAA e das motivações para as técnicas de upscaling avaliadas neste TCC.
+
+\citeonline{wang2004ssim} propuseram o Índice de Similaridade Estrutural (SSIM), que se tornou uma das métricas padrão para avaliação de qualidade de imagem em aplicações de processamento de imagens e vídeo. O SSIM é diretamente empregado neste TCC para comparação quantitativa entre imagens renderizadas com diferentes técnicas de anti-aliasing.
+
+A Tabela~\ref{tab:trabalhos_relacionados} resume os trabalhos relacionados e sua relação com a proposta deste TCC.
+
+\begin{table}[h]
+    \caption{Resumo dos trabalhos relacionados}
+    \label{tab:trabalhos_relacionados}
+    \centering%
+    \begin{minipage}{\textwidth}
+        \begin{tabular*}{\textwidth}{p{3cm} p{5cm} p{6cm}}
+            \hline
+            \textbf{Autor(es), Ano} & \textbf{Abordagem utilizada} & \textbf{Relação com a proposta do TCC} \\
+            \hline
+            Feng (2025) & Comparação de FXAA, TAA e TSR no Unreal Engine 5 com métricas PSNR, SSIM e preservação de bordas & Referencial metodológico principal; este TCC adapta a abordagem para o Godot com AMD FSR e inclui VIF \\
+            \hline
+            Yang et al. (2020) & Revisão de técnicas de anti-aliasing temporal e super-resolução com aprendizado profundo & Fundamenta teoricamente o TAA e motiva o uso de técnicas de upscaling como alternativa ao DLSS \\
+            \hline
+            Wang et al. (2004) & Proposta e validação do índice SSIM como métrica de qualidade de imagem & Provê a métrica SSIM utilizada diretamente na avaliação quantitativa deste trabalho \\
+            \hline
+        \end{tabular*}
+        \fonte{Elaborado pelo autor.}
+    \end{minipage}
 \end{table}
 
-\section{Resumo}
-O resumo deve conter de 100 a 500 palavras. No resumo não deve haver citações e indica-se que essa seja a última seção do texto a ser escrita. Veja abaixo uma sugestão de organização e exemplo de resumo de \cite{Moro11}.
+%=======================================================================
+% CAPÍTULO 3 — Metodologia
+%=======================================================================
+\chapter{Metodologia}
 
-Sugestão (uma a três linhas para cada item):
+Esta pesquisa é classificada como \textbf{quantitativa} de natureza \textbf{experimental aplicada}. A abordagem quantitativa é adequada pois os dados coletados — métricas de qualidade de imagem e performance — são mensuráveis e comparáveis numericamente. O caráter experimental se justifica pelo controle rigoroso das variáveis de renderização nas cenas de teste, garantindo reprodutibilidade dos resultados.
+
+\section{Ambiente de Testes e Ferramentas}
+
+\subsection{Hardware}
+
+As limitações de hardware foram determinantes nas escolhas metodológicas deste trabalho. O ambiente de testes é composto por:
+
 \begin{itemize}
-	\item Contexto geral e específico;
-	\item Questão/problema sendo investigado (propósito do trabalho);
-	\item Estado-da-arte (por que precisa de uma solução nova/melhor);
-	\item Solução (nome da proposta, metodologia básica sem detalhes, quais características respondem as questões iniciais, interpretação dos resultados, conclusões).
+    \item \textbf{GPU:} NVIDIA GeForce GTX 1060 (6 GB GDDR5);
+    \item \textbf{CPU:} [especificar processador utilizado];
+    \item \textbf{RAM:} [especificar quantidade de memória];
+    \item \textbf{Sistema Operacional:} Windows 10/11 64-bit.
 \end{itemize}
 
+A escolha da GTX 1060 como plataforma de testes é deliberada: ela representa uma GPU de médio desempenho amplamente presente no parque de hardware de jogadores, conforme dados da Steam Hardware Survey. Essa escolha implica a exclusão do DLSS (exclusivo para GPUs RTX) e do TSR (nativo apenas do Unreal Engine 5), sendo o AMD FSR a única tecnologia de super-resolução disponível nessa configuração dentro do Godot 4.
+
+\subsection{Software}
+
+\begin{itemize}
+    \item \textbf{Motor de jogos:} Godot Engine 4.x;
+    \item \textbf{Módulo de upscaling:} AMD FidelityFX Super Resolution (FSR) — integrado nativamente ao Godot 4;
+    \item \textbf{Linguagem de scripts:} GDScript para automação de capturas;
+    \item \textbf{Análise de imagem:} Python 3.x com bibliotecas OpenCV, scikit-image, piq (para VIF) e pandas;
+    \item \textbf{Visualização:} Matplotlib e Seaborn.
+\end{itemize}
+
+\section{Delineamento Experimental}
+
+\subsection{Técnicas Avaliadas}
+
+Quatro configurações são comparadas neste estudo:
+
+\begin{alineas}
+    \item \textbf{NOAA} — sem anti-aliasing, utilizado como linha de base (baseline);
+    \item \textbf{FXAA} — anti-aliasing por pós-processamento nativo do Godot;
+    \item \textbf{TAA} — anti-aliasing temporal nativo do Godot;
+    \item \textbf{TAA + FSR} — anti-aliasing temporal combinado com upscaling AMD FSR.
+\end{alineas}
+
+\subsection{Projeto das Cenas de Teste}
+
+Para garantir reprodutibilidade e objetividade, foram construídas cenas estáticas padronizadas no Godot 4, contemplando três níveis de complexidade visual:
+
+\begin{itemize}
+    \item \textbf{Cena simples:} geometria básica, poucos polígonos, sem texturas de alta frequência;
+    \item \textbf{Cena média:} objetos com texturas detalhadas, malhas complexas e iluminação estática;
+    \item \textbf{Cena complexa:} ambiente com múltiplos objetos, texturas de alta frequência, vegetação e sombras.
+\end{itemize}
+
+Em cada cena, uma câmera com posição, ângulo e campo de visão (FOV) fixos é utilizada para garantir consistência entre capturas. Toda iluminação é estática para eliminar interferências de iluminação dinâmica na comparação entre técnicas.
+
+\subsection{Protocolo de Captura}
+
+Para cada combinação de cena e técnica de anti-aliasing, o seguinte protocolo é aplicado:
+
+\begin{alineas}
+    \item Inicialização da cena no Godot com a técnica configurada;
+    \item Aguardar estabilização da renderização (mínimo de 2 segundos);
+    \item Capturar 10 quadros consecutivos por meio de script GDScript automatizado;
+    \item Exportar as imagens em formato PNG sem compressão para análise offline;
+    \item Registrar FPS médio e tempo de GPU durante a captura com o monitor de performance nativo do Godot.
+\end{alineas}
+
+A imagem de referência para cada cena é a captura com a mais alta qualidade disponível — neste caso, a imagem TAA em resolução nativa, dado que o TSR não é suportado pelo hardware da GTX 1060 no Godot.
+
+\subsection{Resoluções Testadas}
+
+Os testes são conduzidos nas resoluções:
+
+\begin{itemize}
+    \item 1920 × 1080 (Full HD);
+    \item 2560 × 1440 (QHD) — quando o desempenho permitir.
+\end{itemize}
+
+Para o AMD FSR, a cena é renderizada internamente em resolução reduzida (70\% da resolução alvo) e upscalada para a resolução final, conforme as configurações de qualidade do FSR.
+
+\section{Métricas de Avaliação}
+
+\subsection{Qualidade de Imagem}
+
+As seguintes métricas são calculadas entre cada imagem processada e a imagem de referência:
+
+\begin{itemize}
+    \item \textbf{PSNR}: mede o erro quadrático médio em escala logarítmica; valores maiores indicam maior similaridade~\cite{hore2010psnr};
+    \item \textbf{SSIM}: avalia luminância, contraste e estrutura; valores próximos a 1,0 indicam alta similaridade~\cite{wang2004ssim};
+    \item \textbf{VIF}: quantifica a fidelidade da informação visual em relação ao modelo de percepção humana~\cite{sheikh2006vif}.
+\end{itemize}
+
+\subsection{Performance}
+
+\begin{itemize}
+    \item \textbf{FPS médio}: média de quadros por segundo durante a captura;
+    \item \textbf{Tempo de GPU}: tempo médio de renderização por quadro em milissegundos.
+\end{itemize}
+
+\section{Testes Preliminares}
+
+Testes de viabilidade foram realizados para confirmar o funcionamento das técnicas de anti-aliasing no Godot 4 com a GTX 1060. Foram verificados:
+
+\begin{itemize}
+    \item Funcionamento do módulo AMD FSR no Godot 4 com a GTX 1060 — \textbf{confirmado};
+    \item Disponibilidade dos modos FXAA e TAA no Godot 4 — \textbf{confirmados};
+    \item Incompatibilidade do DLSS (requer RTX) — \textbf{confirmada};
+    \item Funcionamento das bibliotecas Python para cálculo de PSNR, SSIM e VIF — \textbf{confirmado}.
+\end{itemize}
+
+\section{Limitações}
+
+As principais limitações deste estudo são:
+
+\begin{itemize}
+    \item \textbf{Hardware único:} os testes são conduzidos em uma única configuração de hardware (GTX 1060), limitando a generalização para outras GPUs e plataformas;
+    \item \textbf{Tecnologias disponíveis:} a GTX 1060 não suporta DLSS nem TSR, restringindo a comparação ao FSR como representante da categoria de super-resolução;
+    \item \textbf{Cenas estáticas:} os testes utilizam cenas sem objetos em movimento, o que não permite avaliar artefatos de ghosting do TAA em condições dinâmicas;
+    \item \textbf{Motor específico:} os resultados são válidos para o Godot 4 e podem não ser diretamente comparáveis a outras engines como Unity ou Unreal Engine.
+\end{itemize}
 
 %=======================================================================
-% Exemplos de Citações e Referências Bibliográficas
+% CAPÍTULO 4 — Resultados
 %=======================================================================
-\chapter{Mais um capítulo}
-Texto do capítulo.
+\chapter{Resultados}
 
-\section{Nova seção}
-Texto da nova seção. Segundo \citeonline{inproceedings}, esta é uma forma diferente de referenciar.
+\textit{[Esta seção será preenchida após a execução dos experimentos, com os dados de PSNR, SSIM, VIF, FPS e tempo de GPU para cada combinação de técnica e cena.]}
 
-\subsection{Subseção}
-Texto da subseção, com exemplo de citação \cite{book}.
+Os resultados serão apresentados nas seguintes subseções:
 
-\subsection{Subseção}
-Texto da subseção, com exemplo de citação \cite{article}.
+\begin{itemize}
+    \item Análise das métricas de qualidade de imagem (PSNR, SSIM, VIF) por técnica e por cena;
+    \item Análise de performance (FPS e tempo de GPU) por técnica;
+    \item Tabelas comparativas e gráficos de radar, barras e boxplots;
+    \item Discussão dos compromissos qualidade-performance de cada técnica.
+\end{itemize}
 
-\section{Nova seção}
-Texto da subseção, com exemplo de citação \cite{inproceedings}.
+%=======================================================================
+% CAPÍTULO 5 — Considerações Finais
+%=======================================================================
+\chapter{Considerações Finais}
+
+\textit{[Esta seção será preenchida após a análise dos resultados.]}
+
+Este trabalho se propôs a comparar empiricamente as técnicas de anti-aliasing NOAA, FXAA, TAA e AMD FSR no motor de jogos Godot 4, utilizando métricas objetivas de qualidade de imagem (PSNR, SSIM, VIF) e métricas de performance (FPS e tempo de GPU), em uma GPU NVIDIA GeForce GTX 1060.
+
+A fundamentação teórica, baseada no trabalho de \citeonline{feng2025antialiasing} e nos fundamentos de \citeonline{yang2020dlss} e \citeonline{wang2004ssim}, estabeleceu o embasamento metodológico e científico para a comparação proposta. A limitação imposta pelo hardware — que torna o AMD FSR a única opção de super-resolução disponível nessa configuração — é ao mesmo tempo uma restrição e um diferencial, pois endereça um segmento de hardware amplamente presente na base de jogadores.
+
+\subsection*{Trabalhos Futuros}
+
+Como extensões naturais deste trabalho, sugere-se:
+
+\begin{itemize}
+    \item Ampliar os testes para hardware de maior desempenho, incluindo DLSS (NVIDIA RTX) e FSR 3 para comparação com TSR;
+    \item Incluir cenas dinâmicas para avaliar artefatos temporais do TAA e do FSR;
+    \item Conduzir avaliação subjetiva com usuários para correlacionar métricas objetivas com percepção visual;
+    \item Expandir os testes para outros motores de jogos (Unity, Unreal Engine) com configurações de hardware equivalentes.
+\end{itemize}
 
 %=======================================================================
 % Referências
 %=======================================================================
 \bibliography{exemplo}
 
-%=======================================================================
-% Exemplo de Apêndice
-% O Apêndice é utilizado para apresentar material complementar elaborado
-% pelo próprio autor.  Deve seguir as mesmas regras de formatação do
-% corpo principal do documento.
-%=======================================================================
-\appendix
-\chapter{Informações Complementares}
-
-O Apêndice é o lugar para incluir textos complementares, que não são essenciais para o entendimento do assunto principal da monografia, mas que podem contribuir com informação relevante (por exemplo, uma prova matemática, uma conceituação básica, etc.).  Ele deve seguir o formato normal do documento.
-
-%=======================================================================
-% Exemplo de Anexo
-% O Anexo é utilizado para a ``inclusão de materiais não elaborados pelo
-% próprio autor, como cópias de artigos, manuais, folders, balancetes, etc.
-% e não precisam estar em conformidade com o modelo''.
-%=======================================================================
-\annex
-\chapter{Artigos Publicados}
-Existe diferença entre os Apêndices e os Anexos.  Os apêndices trazem informação escrita pelo próprio autor do trabalho, incorporando-se ao formato da monografia como um todo.  Já um anexo é um material à parte, definido/publicado por si só, e que o autor julga conveniente ser apresentado juntamente com a monografia.  Normalmente também vai apresentar formato próprio, como um artigo publicado, um folder, uma planilha, etc.
 \end{document}

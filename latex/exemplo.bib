@@ -1,64 +1,347 @@
-@Misc{Hexsel11,
-	author = "R. Hexsel",
-	title = "Pequeno Manual da Escrita T{\'e}cnica",
-	year = 2011,
-	note = "Dispon{\'\i}vel em: $<$http://www.inf.ufpr.br/info/techrep/RT\_DINF004\_2004.pdf$>$. Acesso em: 1 maio 2011",
+%=======================================================================
+% Arquivo de referências bibliográficas do TCC
+% Baseado nas referências reais da tese: Feng, Zihao (2025)
+% Real-time Anti-Aliasing Techniques in Game Graphics Processing
+% Universidad Politécnica de Madrid
+%=======================================================================
+
+% -----------------------------------------------------------------------
+% REFERÊNCIA PRINCIPAL — Tese do Zihao Feng (referencial metodológico)
+% -----------------------------------------------------------------------
+@mastersthesis{feng2025antialiasing,
+  author  = {Zihao Feng},
+  title   = {Real-time Anti-Aliasing Techniques in Game Graphics Processing},
+  school  = {Escuela T{\'e}cnica Superior de Ingenieros Inform{\'a}ticos,
+             Universidad Polit{\'e}cnica de Madrid},
+  year    = {2025},
+  month   = {jul},
+  type    = {Trabalho de Conclus{\~a}o de Mestrado (M{\'a}ster Universitario
+             en Software y Sistemas)},
+  address = {Madri, Espanha}
 }
 
-@Misc{Moro11,
-	author = "Moro, M.",
-	title = "A Arte de Escrever Artigos Cient{\'\i}ficos",
-	year = 2011,
-	note = "Dispon{\'\i}vel em: $<$http://homepages.dcc.ufmg.br/$\sim$mirella/doku.php?id=escrita$>$. Acesso em: 1 maio 2011",
+% -----------------------------------------------------------------------
+% ANTI-ALIASING — Conceitos e Técnicas Clássicas
+% -----------------------------------------------------------------------
+
+% [5] Jimenez et al. — Filtering approaches / FXAA e variantes
+@inproceedings{jimenez2011filtering,
+  author    = {Jorge Jimenez and Diego Gutierrez and Jason Yang and
+               Alexander Reshetov and Pierre Demoreuille and Tobias Berghoff
+               and others},
+  title     = {Filtering Approaches for Real-Time Anti-Aliasing},
+  booktitle = {ACM SIGGRAPH 2011 Courses},
+  year      = {2011},
+  publisher = {ACM Press},
+  address   = {Vancouver, Canada}
 }
 
-@MastersThesis{Teixeira09,
-	author = "Marcelo Alves Teixeira",
-	title = "lattes2latex: Uma Ferramenta para Conversão de Currículos {L}attes em Documentos {L}a{T}e{X}",
-	year = 2009,
-	type = "Trabalho de Conclus{\~a}o de Curso (Bacharelado em Ci{\^e}ncia da Computa{\c{c}}{\~a}o)",
-	school = "Instituto de Inform{\'a}tica, Universidade Federal do Rio Grande do Sul",
-	address = "Porto Alegre",
-	pages = 82,
+% [6] Fridvalszky & Tóth — MSAA em deferred rendering
+@inproceedings{fridvalszky2020msaa,
+  author    = {Attila Fridvalszky and Bal{\'a}zs T{\'o}th},
+  title     = {Multisample Anti-aliasing in Deferred Rendering},
+  booktitle = {Eurographics (Short Papers)},
+  pages     = {21--24},
+  year      = {2020},
+  publisher = {Eurographics Association},
+  address   = {Norrkoping, Su{\'e}cia}
 }
 
-
-@article{article,
-	author = {Nome1 Sobrenome1 and Nome1 Sobrenome2 and Nome3 Sobrenome3 and Nome4 Sobrenome4},
-	title = {Título do artigo.},
-	journal = {Nome do periódico.},
-	volume = {0},
-	number = {24},
-	year = {2017},
-    address={Cidade, País}
+% [9] Kesten — Evaluating Spatial Anti-Aliasing Techniques
+@mastersthesis{kesten2017spatial,
+  author  = {Viktor Kesten},
+  title   = {Evaluating Different Spatial Anti-Aliasing Techniques},
+  school  = {KTH Royal Institute of Technology},
+  year    = {2017},
+  type    = {Dissertação de Mestrado},
+  address = {Estocolmo, Su{\'e}cia},
+  url     = {https://www.diva-portal.org/smash/record.jsf?pid=diva2\%3A1106244}
 }
 
-@book{book,
-author={Nome1 Sobrenome1 and Nome1 Sobrenome2},
-title={Nome do Livro},
-publisher={Editora},
-year={2019},
-volume={volume},
-address={Cidade, País}
+% [10] Beets & Barron — SSAA análise original
+@techreport{beets2000ssaa,
+  author      = {Kristof Beets and Dave Barron},
+  title       = {Super-Sampling Anti-Aliasing Analyzed},
+  institution = {Beyond3D},
+  year        = {2000},
+  url         = {http://magicsim.free.fr/3dfx/3dfxpubs/FSAA-Analyzed1.PDF}
 }
 
-@book{real_time_rendering_4th,
-  author    = {Tomas Akenine-Möller and Eric Haines and Naty Hoffman and Angelo Pesce and Michał Iwanicki and Sébastien Hillaire},
-  title     = {Real-Time Rendering},
-  publisher = {A K Peters/CRC Press},
+% [12] Grahn — Image/Processing Comparison of AA Methods
+@mastersthesis{grahn2016comparison,
+  author  = {August Grahn},
+  title   = {An Image and Processing Comparison Study of Antialiasing Methods},
+  school  = {Ume{\aa} University},
+  year    = {2016},
+  type    = {Trabalho de Conclus{\~a}o de Curso},
+  address = {Ume{\aa}, Su{\'e}cia}
+}
+
+% [13] Zou et al. — FXAA melhorado (ICGIP 2023)
+@inproceedings{zou2024improved,
+  author    = {Jinglong Zou and Zhenghao Xu and Shenghao Wu and Lingyun Zhou},
+  title     = {Improved Anti-Aliasing Algorithm Based on Fast Approximate Anti-Aliasing},
+  booktitle = {Fifteenth International Conference on Graphics and Image Processing
+               (ICGIP 2023)},
+  volume    = {13089},
+  pages     = {568--579},
+  year      = {2024},
+  publisher = {SPIE}
+}
+
+% [14] Reshetov — MLAA (Morphological AA)
+@inproceedings{reshetov2009mlaa,
+  author    = {Alexander Reshetov},
+  title     = {Morphological Antialiasing},
+  booktitle = {Proceedings of the Conference on High Performance Graphics 2009},
+  pages     = {109--116},
+  year      = {2009},
+  publisher = {ACM},
+  address   = {Nova Orleans, EUA}
+}
+
+% [2] Sung et al. — Spatial-temporal antialiasing (IEEE TVCG)
+@article{sung2002temporal,
+  author  = {Kelvin Sung and Andrew Pearce and Chet Wang},
+  title   = {Spatial-Temporal Antialiasing},
+  journal = {IEEE Transactions on Visualization and Computer Graphics},
+  volume  = {8},
+  number  = {2},
+  pages   = {144--153},
+  year    = {2002}
+}
+
+% -----------------------------------------------------------------------
+% SUPER-RESOLUÇÃO E UPSCALING
+% -----------------------------------------------------------------------
+
+% [3] Siam et al. — Deep CNN Anti-Aliasing 3D (2024)
+@article{siam2024deepaa,
+  author  = {Farhan Jahan Siam and Zahidul Islam Prince and
+             Azizul Nabi Bari and Jia Uddin},
+  title   = {A Real-Time Anti-Aliasing Approach for {3D} Applications
+             Using Deep Convolutional Neural Network},
+  journal = {International Journal of Computer Vision and Signal Processing},
+  year    = {2024},
+  url     = {https://cennser.org/IJCVSP/finalPaper/140107.pdf}
+}
+
+% [4] Mengistu — Deep Learning Realtime Upsampling (2023)
+@article{mengistu2023upsampling,
+  author  = {Biruk Mengistu},
+  title   = {Deep-Learning Realtime Upsampling Techniques in Video Games},
+  journal = {Scholarly Horizons: University of Minnesota, Morris Undergraduate Journal},
+  volume  = {10},
+  number  = {2},
+  pages   = {4},
+  year    = {2023}
+}
+
+% [17] Zhou — AI in Gaming: DLSS and LLMs (ICIAAI 2024)
+@inproceedings{zhou2024dlss,
+  author    = {Hanning Zhou},
+  title     = {The Role of {AI} in Revolutionizing the Gaming Industry:
+               A Focus on {DLSS} and Large Language Models},
+  booktitle = {2024 2nd International Conference on Image, Algorithms and
+               Artificial Intelligence (ICIAAI 2024)},
+  pages     = {939--949},
+  year      = {2024},
+  publisher = {Atlantis Press}
+}
+
+% [7] NVIDIA — DLSS 4 (2025)
+@misc{nvidia2025dlss4,
+  author       = {Henry Lin and Andrew Burnes},
+  title        = {{NVIDIA DLSS 4} Introduces Multi Frame Generation \&
+                 Enhancements for All {DLSS} Technologies},
+  year         = {2025},
+  howpublished = {Dispon{\'\i}vel em:
+                 \url{https://www.nvidia.com/en-us/geforce/news/dlss4-multi-frame-generation-ai-innovations/}.
+                 Acesso em: jun. 2025}
+}
+
+% AMD FSR — não aparece listado explicitamente por número em Feng;
+% referenciado no corpo do texto. Fonte oficial AMD:
+@misc{amd_fsr,
+  author       = {{Advanced Micro Devices, Inc.}},
+  title        = {{AMD FidelityFX Super Resolution (FSR)} -- Open Source Upscaling Solution},
+  year         = {2023},
+  howpublished = {Dispon{\'\i}vel em:
+                 \url{https://gpuopen.com/fidelityfx-superresolution}.
+                 Acesso em: jun. 2025}
+}
+
+% [18] Epic Games — Temporal Super Resolution (Unreal Engine 5)
+@misc{epicgames2025tsr,
+  author       = {{Epic Games}},
+  title        = {Temporal Super Resolution in {Unreal Engine}},
+  year         = {2025},
+  howpublished = {Dispon{\'\i}vel em:
+                 \url{https://dev.epicgames.com/documentation/en-us/unreal-engine/temporal-super-resolution-in-unreal-engine}.
+                 Acesso em: jun. 2025}
+}
+
+% -----------------------------------------------------------------------
+% MÉTRICAS DE QUALIDADE DE IMAGEM
+% -----------------------------------------------------------------------
+
+% [21] Hore & Ziou — PSNR vs SSIM (ICPR 2010)
+@inproceedings{hore2010psnr,
+  author    = {Alain Hor{\'e} and Djemel Ziou},
+  title     = {Image Quality Metrics: {PSNR} vs. {SSIM}},
+  booktitle = {2010 20th International Conference on Pattern Recognition (ICPR)},
+  pages     = {2366--2369},
+  year      = {2010},
+  publisher = {IEEE},
+  address   = {Istambul, Turquia}
+}
+
+% [22] Sara et al. — FSIM, SSIM, MSE, PSNR Comparative Study (2019)
+@article{sara2019ssim,
+  author  = {Umme Sara and Morium Akter and Mohammad Shorif Uddin},
+  title   = {Image Quality Assessment through {FSIM}, {SSIM}, {MSE} and {PSNR}
+             --- A Comparative Study},
+  journal = {Journal of Computer and Communications},
+  volume  = {7},
+  number  = {3},
+  pages   = {8--18},
+  year    = {2019}
+}
+
+% Wang et al. (2004) — SSIM original (citado em Feng como base da métrica)
+@article{wang2004ssim,
+  author  = {Zhou Wang and Alan C. Bovik and Hamid R. Sheikh and
+             Eero P. Simoncelli},
+  title   = {Image Quality Assessment: From Error Visibility to
+             Structural Similarity},
+  journal = {IEEE Transactions on Image Processing},
+  volume  = {13},
+  number  = {4},
+  pages   = {600--612},
+  year    = {2004}
+}
+
+% Sheikh & Bovik (2006) — VIF
+@article{sheikh2006vif,
+  author  = {Hamid R. Sheikh and Alan C. Bovik},
+  title   = {Image Information and Visual Quality},
+  journal = {IEEE Transactions on Image Processing},
+  volume  = {15},
+  number  = {2},
+  pages   = {430--444},
+  year    = {2006}
+}
+
+% Canny (1986) — Detector de bordas usado para Edge Preservation
+@article{canny1986edge,
+  author  = {John Canny},
+  title   = {A Computational Approach to Edge Detection},
+  journal = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  volume  = {8},
+  number  = {6},
+  pages   = {679--698},
+  year    = {1986}
+}
+
+% -----------------------------------------------------------------------
+% INDÚSTRIA DE JOGOS E CONTEXTO
+% -----------------------------------------------------------------------
+
+% [19] Jumani et al. — QoE in Gaming Graphics (Electronics 2024)
+@article{jumani2024qoe,
+  author  = {Asif Khan Jumani and others},
+  title   = {Quality of Experience That Matters in Gaming Graphics:
+             How to Blend Image Processing and Virtual Reality},
+  journal = {Electronics},
+  volume  = {13},
+  number  = {15},
+  pages   = {2998},
+  year    = {2024}
+}
+
+% [20] Goh et al. — Video Game Industry Framework (2023)
+@article{goh2023videogame,
+  author  = {Eugene Goh and Omar Al-Tabbaa and Zeeshan Khan},
+  title   = {Unravelling the Complexity of the Video Game Industry:
+             An Integrative Framework and Future Research Directions},
+  journal = {Telematics and Informatics Reports},
+  volume  = {12},
+  pages   = {100100},
+  year    = {2023}
+}
+
+% [23] Berg — Energy Implications of Upscaling (2024)
+@thesis{berg2024energy,
+  author  = {Marcus Berg},
+  title   = {Energy Implications of Upscaling and Frame Generation in Games},
+  year    = {2024},
+  type    = {Trabalho de Conclus{\~a}o de Curso}
+}
+
+% [24] Andreev — Frame Rate Up-Conversion (SIGGRAPH 2010)
+@inproceedings{andreev2010framerate,
+  author    = {Denis Andreev},
+  title     = {Real-Time Frame Rate Up-Conversion for Video Games:
+               Or How to Get from 30 to 60 {FPS} for Free},
+  booktitle = {ACM SIGGRAPH 2010 Talks},
+  pages     = {1--1},
+  year      = {2010},
+  publisher = {ACM}
+}
+
+% [25] Kato et al. — GPU Scheduling Real-Time (USENIX ATC 2011)
+@inproceedings{kato2011timegraph,
+  author    = {Shinpei Kato and Karthik Lakshmanan and Ragunathan Rajkumar
+               and Yutaka Ishikawa},
+  title     = {{TimeGraph}: {GPU} Scheduling for Real-Time Multi-Tasking Environments},
+  booktitle = {2011 USENIX Annual Technical Conference (USENIX ATC 11)},
+  year      = {2011},
+  publisher = {USENIX Association}
+}
+
+% -----------------------------------------------------------------------
+% GODOT ENGINE E UNREAL ENGINE
+% -----------------------------------------------------------------------
+
+@misc{godot_engine,
+  author       = {{Godot Engine Contributors}},
+  title        = {Godot Engine -- Free and Open Source 2D and 3D Game Engine},
+  year         = {2024},
+  howpublished = {Dispon{\'\i}vel em: \url{https://godotengine.org}.
+                 Acesso em: jun. 2025}
+}
+
+% [26] Epic Games — Anti-Aliasing and Upscaling (Unreal Engine docs)
+@misc{epicgames2025aa,
+  author       = {{Epic Games}},
+  title        = {Anti-Aliasing and Upscaling in {Unreal Engine}},
+  year         = {2025},
+  howpublished = {Dispon{\'\i}vel em:
+                 \url{https://dev.epicgames.com/documentation/en-us/unreal-engine/anti-aliasing-and-upscaling-in-unreal-engine}.
+                 Acesso em: jun. 2025}
+}
+
+% [8] Valve Developer Community — Anti-Aliasing wiki
+@misc{valve2025aa,
+  author       = {{Valve Developer Community}},
+  title        = {Anti-Aliasing},
+  year         = {2025},
+  howpublished = {Dispon{\'\i}vel em:
+                 \url{https://developer.valvesoftware.com/wiki/Anti-aliasing}.
+                 Acesso em: jun. 2025}
+}
+
+% -----------------------------------------------------------------------
+% POST-PROCESSING AA — GPU Pro
+% -----------------------------------------------------------------------
+
+% [15] Jimenez et al. — MLAA in GPU Pro 360
+@incollection{jimenez2018practical,
+  author    = {Jorge Jimenez and Belen Masia and Jose I. Echevarria and
+               Fernando Navarro and Diego Gutierrez},
+  title     = {Practical Morphological Antialiasing},
+  booktitle = {{GPU Pro 360} Guide to Rendering},
+  pages     = {135--153},
   year      = {2018},
-  volume    = {4},
-  address   = {Boca Raton, Florida, USA}
-}
-
-@inproceedings{inproceedings,
- author = {Nome1 Sobrenome1 and Nome2 Sobrenome2},
- title = {Título do artigo},
- booktitle = {Proceedings of nome do proceeding},
- series = {SIGLA},
- year = {2018},
- pages = {PáginaInicial--PáginaFinal},
- numpages = {NumPaginas},
- publisher = {Publisher},
- address = {Cidade, Estado},
+  publisher = {AK Peters/CRC Press}
 }
