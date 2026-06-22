@@ -12,6 +12,7 @@
 \usepackage{bibentry}
 \usepackage{booktabs}
 \usepackage{url}
+\usepackage{amsmath}
 \usepackage[alf]{abntex2cite}
 
 %=======================================================================
@@ -102,7 +103,7 @@ Aliasing is a recurring problem in real-time computer graphics, manifesting as j
 %=======================================================================
 \chapter{Introdução}
 
-Na computação gráfica em tempo real, um problema persistente desde os primórdios da renderização digital é o aliasing, fenômeno causado pelo processo de rasterização ao converter geometria contínua em pixels discretos~\cite{real_time_rendering_4th}. Essa limitação se manifesta principalmente como bordas serrilhadas em objetos, cintilação de texturas de alta frequência e instabilidade temporal em cenas dinâmicas, comprometendo o realismo e o conforto visual do jogador.
+Na computação gráfica em tempo real, um problema constante durante a renderização é o aliasing, fenômeno causado pelo processo de rasterização ao converter geometria contínua em pixels discretos~\cite{real_time_rendering_4th}. Essa limitação se manifesta principalmente como bordas serrilhadas em objetos e cintilação de texturas de alta frequência.
 
 Para mitigar esses artefatos, diversas técnicas de anti-aliasing foram desenvolvidas ao longo de décadas. O Super-Sampling Anti-Aliasing (SSAA), pioneiro da área, renderiza a cena em resolução múltipla da resolução alvo e faz o downsampling do resultado, obtendo excelente qualidade de imagem às custas de elevado custo computacional~\cite{real_time_rendering_4th}. O Multi-Sample Anti-Aliasing (MSAA) surgiu como otimização do SSAA, aplicando múltiplas amostras apenas nas bordas geométricas, reduzindo consideravelmente o processamento necessário. Já o Fast Approximate Anti-Aliasing (FXAA) representa a geração de técnicas de pós-processamento, detectando e suavizando bordas na imagem já renderizada, com overhead mínimo~\cite{lottes2011fxaa}. O Temporal Anti-Aliasing (TAA) avança nessa direção ao acumular informações de quadros anteriores para reconstituir bordas suaves, atingindo resultados superiores em cenas estáticas ao custo de potenciais artefatos de ghosting em movimentos rápidos~\cite{yang2020dlss}.
 
@@ -408,3 +409,4 @@ Como extensões naturais deste trabalho, sugere-se:
 \bibliography{exemplo}
 
 \end{document}
+
